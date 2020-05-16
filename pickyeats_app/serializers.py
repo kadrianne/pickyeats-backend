@@ -15,4 +15,4 @@ class PartySerializer(serializers.ModelSerializer):
 class LikedRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikedRestaurant
-        fields = ('id', 'name', 'room', 'user')
+        fields = ('id', 'name', 'yelp_id', 'party', 'user')
