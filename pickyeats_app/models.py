@@ -13,8 +13,8 @@ class Party(models.Model):
 class User(models.Model):
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50, default='')
+    phone = models.CharField(max_length=10, default='')
     active_party = models.ForeignKey(Party, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
