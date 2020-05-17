@@ -5,7 +5,7 @@ from .models import User, Party, LikedRestaurant
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'email', 'active_party')
+        fields = ('id', 'name', 'phone', 'email', 'active_party')
 
 class PartySerializer(serializers.ModelSerializer):
     class Meta:
