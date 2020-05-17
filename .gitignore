@@ -1,2 +1,3 @@
 pickyeats/settings.py
-__pycache__
+pickyeats/__pycache__
+pickyeats_app/__pycache__
