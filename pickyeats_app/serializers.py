@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from .models import User, Party, LikedRestaurant
+from .models import AppUser, Party, LikedRestaurant
 
-class UserSerializer(serializers.ModelSerializer):
+class AppUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'name', 'phone', 'email', 'active_party')
+        model = AppUser
+        fields = ('id', 'user', 'name', 'phone', 'email', 'active_party')
 
 class PartySerializer(serializers.ModelSerializer):
     class Meta:
