@@ -31,9 +31,14 @@ class LoginSerializer(serializers.Serializer):
 class PartySerializer(serializers.ModelSerializer):
     class Meta:
         model = Party
-        fields = ('id', 'title', 'created_at')
+        fields = ('id', 'title', 'active', 'created_at')
 
 class LikedRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikedRestaurant
         fields = ('id', 'name', 'yelp_id', 'party', 'user')
+
+class FriendsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'name', 'phone')
