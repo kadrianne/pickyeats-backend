@@ -1,7 +1,8 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, SignupSerializer, LoginSerializer
+from .models import User
+from .serializers import UserSerializer, SignupSerializer, LoginSerializer, FriendsSerializer
 
 class SignupAPI(generics.GenericAPIView):
     serializer_class = SignupSerializer
@@ -30,3 +31,9 @@ class LoginAPI(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": token
         })
+
+class FriendSearchAPI(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = FriendsSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', '=phone', 'username']
