@@ -5,7 +5,7 @@ from .api import SignupAPI, LoginAPI
 
 router = routers.DefaultRouter()
 router.register('users', views.UserView)
-router.register('app-users', views.AppUserView)
+# router.register('app-users', views.AppUserView)
 router.register('liked-restaurants', views.LikedRestaurantView)
 router.register('parties', views.PartyView)
 
