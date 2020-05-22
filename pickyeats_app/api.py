@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions, filters
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .models import User
-from .serializers import UserSerializer, SignupSerializer, LoginSerializer, FriendsSerializer
+from .models import User, LikedRestaurant, MatchedRestaurant
+from .serializers import UserSerializer, SignupSerializer, LoginSerializer, FriendsSerializer, LikedRestaurantSerializer, MatchedRestaurantSerializer
 
 class SignupAPI(generics.GenericAPIView):
     serializer_class = SignupSerializer
@@ -37,3 +37,25 @@ class FriendSearchAPI(generics.ListAPIView):
     serializer_class = FriendsSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', '=phone', 'username']
+
+class PartyRestaurantsAPI(generics.ListAPIView):
+    queryset = LikedRestaurant.objects.all()
+    serializer_class = LikedRestaurantSerializer
+
+    def get_queryset(self):
+        queryset = LikedRestaurant.objects.all()
+        party = self.request.query_params.get('party_id', None)
+        if party is not None:
+            queryset = queryset.filter(party_id=party)
+        return queryset
+
+class MatchedRestaurantsAPI(generics.ListAPIView):
+    queryset = MatchedRestaurant.objects.all()
+    serializer_class = MatchedRestaurantSerializer
+
+    def get_queryset(self):
+        queryset = MatchedRestaurant.objects.all()
+        party = self.request.query_params.get('party_id', None)
+        if party is not None:
+            queryset = queryset.filter(party_id=party)
+        return queryset

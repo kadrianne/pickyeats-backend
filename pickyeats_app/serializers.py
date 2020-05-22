@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from .models import User, Party, LikedRestaurant
+from .models import User, Party, LikedRestaurant, MatchedRestaurant
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,3 +42,8 @@ class FriendsSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'name', 'phone')
+
+class MatchedRestaurantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MatchedRestaurant
+        fields = ('id', 'name', 'yelp_id', 'party')
