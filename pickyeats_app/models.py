@@ -1,12 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.conf import settings
 
 class Party(models.Model):
     title = models.CharField(max_length=30)
-    active = models.BooleanField()
+    search_query = models.CharField(max_length=100, blank=True)
+    active = models.BooleanField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
