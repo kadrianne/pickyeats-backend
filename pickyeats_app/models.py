@@ -24,3 +24,8 @@ class LikedRestaurant(models.Model):
     yelp_id = models.CharField(max_length=50)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
+
+class MatchedRestaurant(models.Model):
+    name = models.CharField(max_length=50)
+    yelp_id = models.CharField(max_length=50)
+    party = models.ForeignKey(Party, on_delete=models.CASCADE)
