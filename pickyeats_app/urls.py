@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from rest_framework import routers
-from .api import SignupAPI, LoginAPI, FriendSearchAPI
+from .api import SignupAPI, LoginAPI, FriendSearchAPI, MatchedRestaurantsAPI
 
 router = routers.DefaultRouter()
 router.register('users', views.UserView)
@@ -13,5 +13,6 @@ urlpatterns = [
     path('api/auth', include('knox.urls')),
     path('api/auth/signup', SignupAPI.as_view()),
     path('api/auth/login', LoginAPI.as_view()),
-    path('api/users', FriendSearchAPI.as_view())
+    path('api/users', FriendSearchAPI.as_view()),
+    path('api/matched-restaurants', MatchedRestaurantsAPI.as_view())
 ]
