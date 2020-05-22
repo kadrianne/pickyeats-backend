@@ -31,7 +31,7 @@ class LoginSerializer(serializers.Serializer):
 class PartySerializer(serializers.ModelSerializer):
     class Meta:
         model = Party
-        fields = ('id', 'title', 'active', 'created_at')
+        fields = ('id', 'title', 'search_query', 'active', 'created_at')
 
 class LikedRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
