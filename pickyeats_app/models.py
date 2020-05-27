@@ -14,7 +14,7 @@ class Party(models.Model):
 class User(AbstractUser):
     name = models.CharField(max_length=50, default='')
     phone = models.CharField(max_length=10, default='')
-    active_party = models.ForeignKey(Party, blank=True, null=True, on_delete=models.SET_NULL)
+    active_party = models.ForeignKey(Party, related_name='users', blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f'{self.id}: {self.name}'
