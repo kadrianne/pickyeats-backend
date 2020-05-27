@@ -36,7 +36,6 @@ class PartySerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'search_query', 'active', 'users', 'created_at')
 
 class LikedRestaurantSerializer(serializers.ModelSerializer):
-    user = UserSerializer(many=False, read_only=True)
 
     class Meta:
         model = LikedRestaurant
@@ -47,8 +46,20 @@ class FriendsSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'name', 'phone')
 
+class UserNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('name',)
+
+class LikedRestaurantUserSerializer(serializers.ModelSerializer):
+    user = UserNameSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = LikedRestaurant
+        fields = ('user',)
+
 class MatchedRestaurantSerializer(serializers.ModelSerializer):
-    liked_restaurants = LikedRestaurantSerializer(many=True, read_only=True)
+    liked_restaurants = LikedRestaurantUserSerializer(many=True, read_only=True)
 
     class Meta:
         model = MatchedRestaurant
