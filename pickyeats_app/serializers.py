@@ -29,9 +29,11 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError('Email and/or password is incorrect')
 
 class PartySerializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
     class Meta:
         model = Party
-        fields = ('id', 'title', 'search_query', 'active', 'created_at')
+        fields = ('id', 'title', 'search_query', 'active', 'users', 'created_at')
 
 class LikedRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
