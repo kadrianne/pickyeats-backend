@@ -36,9 +36,11 @@ class PartySerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'search_query', 'active', 'users', 'created_at')
 
 class LikedRestaurantSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False, read_only=True)
+
     class Meta:
         model = LikedRestaurant
-        fields = ('id', 'name', 'yelp_id', 'party', 'user')
+        fields = ('id', 'name', 'yelp_id', 'party', 'user', 'matched_restaurant')
 
 class FriendsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,6 +48,8 @@ class FriendsSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'name', 'phone')
 
 class MatchedRestaurantSerializer(serializers.ModelSerializer):
+    liked_restaurants = LikedRestaurantSerializer(many=True, read_only=True)
+
     class Meta:
         model = MatchedRestaurant
-        fields = ('id', 'name', 'yelp_id', 'party')
+        fields = ('id', 'name', 'yelp_id', 'party', 'liked_restaurants')
