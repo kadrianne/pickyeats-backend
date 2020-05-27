@@ -19,13 +19,14 @@ class User(AbstractUser):
     def __str__(self):
         return f'{self.id}: {self.name}'
 
-class LikedRestaurant(models.Model):
-    name = models.CharField(max_length=50)
-    yelp_id = models.CharField(max_length=50)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    party = models.ForeignKey(Party, on_delete=models.CASCADE)
-
 class MatchedRestaurant(models.Model):
     name = models.CharField(max_length=50)
     yelp_id = models.CharField(max_length=50)
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
+
+class LikedRestaurant(models.Model):
+    name = models.CharField(max_length=50)
+    yelp_id = models.CharField(max_length=50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user', on_delete=models.CASCADE)
+    party = models.ForeignKey(Party, on_delete=models.CASCADE)
+    matched_restaurant = models.ForeignKey(MatchedRestaurant, related_name='liked_restaurants', blank=True, null=True, on_delete=models.CASCADE)
