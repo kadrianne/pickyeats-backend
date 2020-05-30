@@ -14,7 +14,17 @@ The app is currently only build for and tested with an Android device (Pixel 3 X
 
 ## App Features
 
-### 
+### Friend Search
+
+This API endpoint allowed for a search query to return results based on a partial match of username or name or an exact match of phone number.
+
+### Liked Restaurants by Party
+
+This API endpoint filters liked restaurants based on the party ID paramater.
+
+### Matched Restaurants by Party
+
+This API endpoint filters matched restaurants based on the party ID paramater.
 
 ## Challenges
 
