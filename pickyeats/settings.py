@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'pickyeats.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
-    )
+    ),
     'development': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pickyeats',
