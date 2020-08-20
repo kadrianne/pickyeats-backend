@@ -2,7 +2,7 @@
 
 This is the backend API for the PICKYeats mobile app. The API allows the frontend to manage users, parties, liked restaurants, and matched restaurants.
 
-Frontend respository: https://github.com/kadrianne/pickyeats-backend
+Frontend respository: https://github.com/kadrianne/pickyeats
 
 ## Built With
 Frontend: JavaScript, React Native v0.62.2, Redux, [React Native Elements](https://react-native-elements.github.io/)<br>
