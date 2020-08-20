@@ -39,7 +39,7 @@ Extending the user model and implementing authentication was also a challenge as
 
 ## Collaboration
 
-1. Fork and/or clone this repo & the backend repo - https://github.com/kadrianne/pickyeats-backend
+1. Fork and/or clone this repo & the frontend repo - https://github.com/kadrianne/pickyeats
 2. Create PostgreSQL database `createdb pickyeats`
 3. Migrate database tables in backend: `python3 manage.py migrate`
 4. Run backend server: `python3 manage.py runserver`
