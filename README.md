@@ -2,7 +2,7 @@
 
 This is the backend API for the PICKYeats mobile app. The API allows the frontend to manage users, parties, liked restaurants, and matched restaurants.
 
-Frontend respository: https://github.com/kadrianne/pickyeats-backend
+Frontend respository: https://github.com/kadrianne/pickyeats
 
 ## Built With
 Frontend: JavaScript, React Native v0.62.2, Redux, [React Native Elements](https://react-native-elements.github.io/)<br>
@@ -10,7 +10,7 @@ Backend: Python 3.8.2, Django v3.0.6, Django Rest Framework v3.11.0, PostgreSQL 
 
 API for business data: [Yelp Fusion](https://www.yelp.com/fusion)
 
-The app is currently only build for and tested with an Android device (Pixel 3 XL) using an Android Studio emulator.
+The app is currently only built for and tested with an Android device (Pixel 3 XL) using an Android Studio emulator.
 
 ## App Features
 
@@ -39,7 +39,7 @@ Extending the user model and implementing authentication was also a challenge as
 
 ## Collaboration
 
-1. Fork and/or clone this repo & the backend repo - https://github.com/kadrianne/pickyeats-backend
+1. Fork and/or clone this repo & the frontend repo - https://github.com/kadrianne/pickyeats
 2. Create PostgreSQL database `createdb pickyeats`
 3. Migrate database tables in backend: `python3 manage.py migrate`
 4. Run backend server: `python3 manage.py runserver`
