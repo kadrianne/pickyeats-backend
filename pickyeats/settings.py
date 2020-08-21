@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'pickyeats',
         'HOST': os.environ['DATABASE_URL'],
         'PORT': '',
-    }
+    },
     'development': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pickyeats',
