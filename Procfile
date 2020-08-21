@@ -1,1 +1,1 @@
-web: gunicorn pickyeats.wsgi --log-file -
+web: gunicorn pickyeats.wsgi
